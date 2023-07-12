@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div class="container">
+        <h1>JS LUDO</h1>
+        <div class="dice">
+            <p>Player 1</p>
+            <img src="images/Dice1.png" id="check1">
+        </div>
+        <div class="dice">
+            <p>Player 2</p>
+            <img src="images/Dice1.png" id="check2">
+        </div>
+        <div class="">
+            <button type="button" onclick="ludogame()">Click Me</button>
+        </div>
+     </div>
+</body>
+<script>
+    ludogame = () => {
+    const player1 = Math.floor(Math.random() * 6)+1;
+    const playdice1 = 'images/Dice'+player1+'.png';
+    document.getElementById('check1').setAttribute('src',playdice1);
+
+    const player2= Math.floor(Math.random() * 6)+1;
+    const playdice2 = 'images/Dice'+player2+'.png';
+    document.getElementById('check2').setAttribute('src',playdice2);
+
+    if(player1 == 6){
+        document.querySelector('h1').innerHTML="Player1 Worn";
+        document.querySelector('button').style.display = "none";
+        document.body.style.backgroundImage = "url('images/celebrated.gif')";
+    }
+    else if(player2 == 6){
+        document.querySelector('h1').innerHTML="Player2 Worn";
+        document.querySelector('button').style.display = "none";
+        document.body.style.backgroundImage = "url('images/celebrated.gif')";
+    }
+    else{
+        document.querySelector('h1').innerHTML="DRAW!";
+    }
+    }
+</script>
+</html>
